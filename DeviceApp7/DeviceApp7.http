@@ -1,6 +1,0 @@
-@DeviceApp7_HostAddress = http://localhost:5138
-
-GET {{DeviceApp7_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
