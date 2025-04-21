@@ -1,0 +1,31 @@
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
+    env_file:
+      - .env
+    environment:
+      ACCEPT_EULA: ${ACCEPT_EULA}
+      SA_PASSWORD:   ${SA_PASSWORD}
+    ports:
+      - "5001:5001"
+    healthcheck:
+      test: >
+        ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "${SA_PASSWORD}", "-Q", "SELECT 1"]
+      interval: 10s 
+      timeout: 5s 
+      retries: 12
+
+  webapi:
+    build:
+      context: ..                  # ← instead of “.”
+      dockerfile: WebApi/Dockerfile
+    depends_on:
+      mssql:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: >
+        Server=mssql,1433;Database=DevicesDb;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=True
+    ports:
+      - "5001:80"
