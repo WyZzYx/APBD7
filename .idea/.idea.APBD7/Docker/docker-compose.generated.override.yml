@@ -1,0 +1,20 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.8"
+services:
+  webapi:
+    build:
+      context: "/Users/vitaliikoltok/RiderProjects/APBD7"
+      dockerfile: "WebApi/Dockerfile"
+      target: "build"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/WebApi.dll"
+    environment: {}
+    image: "webapi:dev"
+    ports: []
+    volumes:
+    - "/Users/vitaliikoltok/RiderProjects/APBD7/WebApi:/app:rw"
+    - "/Users/vitaliikoltok/RiderProjects/APBD7:/src:rw"
+    - "/Users/vitaliikoltok/.nuget/packages:/root/.nuget/packages"
+    working_dir: "/app"
