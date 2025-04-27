@@ -12,17 +12,17 @@ public class DeviceService : IDeviceService
         _repo = repo;
     }
 
-    public Task<IEnumerable<Device>> GetAllAsync()
+    public Task<IEnumerable<Device>> GetAll()
     {
         return _repo.GetAllAsync();
     }
 
-    public Task<Device?> GetByIdAsync(string id)
+    public Task<Device?> GetById(string id)
     {
         return _repo.GetByIdAsync(id);
     }
 
-    public Task CreateAsync(Device device)
+    public Task Create(Device device)
     {
         if (string.IsNullOrWhiteSpace(device.Id)
             || string.IsNullOrWhiteSpace(device.Name))
@@ -33,7 +33,7 @@ public class DeviceService : IDeviceService
         return _repo.CreateAsync(device);
     }
 
-    public Task UpdateAsync(Device device)
+    public Task Update(Device device)
     {
         if (string.IsNullOrWhiteSpace(device.Id))
         {
@@ -43,7 +43,7 @@ public class DeviceService : IDeviceService
         return _repo.UpdateAsync(device);
     }
 
-    public Task DeleteAsync(string id)
+    public Task Delete(string id)
     {
         if (string.IsNullOrWhiteSpace(id))
         {
