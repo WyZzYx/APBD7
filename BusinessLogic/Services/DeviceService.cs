@@ -3,53 +3,28 @@ using Domain;
 
 namespace BusinessLogic.Services;
 
-public class DeviceService : IDeviceService
-{
+public class DeviceService : IDeviceService {
     private readonly IDeviceRepository _repo;
+    public DeviceService(IDeviceRepository repo) => _repo = repo;
 
-    public DeviceService(IDeviceRepository repo)
-    {
-        _repo = repo;
+    public Task<IEnumerable<Device>> GetAll() => _repo.GetAllAsync();
+
+    public Task<Device?> GetById(string id) => _repo.GetByIdAsync(id);
+
+    public async Task<Device?> Create(Device? d) {
+        d.Id = Guid.NewGuid().ToString();
+        DeviceValidator.Validate(d);
+        await _repo.CreateAsync(d);
+        return d;
     }
 
-    public Task<IEnumerable<Device>> GetAll()
-    {
-        return _repo.GetAllAsync();
+    public Task Update(Device? d) {
+        DeviceValidator.Validate(d);
+        return _repo.UpdateAsync(d);
     }
 
-    public Task<Device?> GetById(string id)
-    {
-        return _repo.GetByIdAsync(id);
-    }
-
-    public Task Create(Device device)
-    {
-        if (string.IsNullOrWhiteSpace(device.Id)
-            || string.IsNullOrWhiteSpace(device.Name))
-        {
-            throw new ArgumentException("Id and Name are required.");
-        }
-
-        return _repo.CreateAsync(device);
-    }
-
-    public Task Update(Device device)
-    {
-        if (string.IsNullOrWhiteSpace(device.Id))
-        {
-            throw new ArgumentException("Id is required.");
-        }
-
-        return _repo.UpdateAsync(device);
-    }
-
-    public Task Delete(string id)
-    {
-        if (string.IsNullOrWhiteSpace(id))
-        {
-            throw new ArgumentException("Id is required.");
-        }
-
+    public Task Delete(string id) {
+        if (string.IsNullOrWhiteSpace(id)) throw new ArgumentException();
         return _repo.DeleteAsync(id);
     }
 }
