@@ -68,6 +68,8 @@ public class DeviceRepository : IDeviceRepository {
              WHERE Id = @id";
 
         await using var c   = new SqlConnection(_conn);
+        using var tx  = c.BeginTransaction();
+
         await using var cmd = new SqlCommand(sql, c);
 
         cmd.Parameters.AddWithValue("@id",   d.Id);
@@ -79,14 +81,19 @@ public class DeviceRepository : IDeviceRepository {
         await c.OpenAsync();
         var rows = await cmd.ExecuteNonQueryAsync();
         if (rows == 0) throw new KeyNotFoundException($"Device '{d.Id}' not found");
+        tx.Commit();
+
     }
 
     public async Task DeleteAsync(string id) {
         const string sql = "DELETE FROM Devices WHERE Id=@id";
         await using var c = new SqlConnection(_conn);
         await using var cmd = new SqlCommand(sql, c);
+        using var tx  = c.BeginTransaction();
+
         cmd.Parameters.AddWithValue("@id", id);
         await c.OpenAsync();
         await cmd.ExecuteNonQueryAsync();
+        tx.Commit();
     }
 }
