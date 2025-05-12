@@ -1,3 +1,4 @@
+using System.Data;
 using System.Text.Json;
 using Domain;
 using Microsoft.Data.SqlClient;
@@ -46,7 +47,11 @@ public class DeviceRepository : IDeviceRepository {
               ( @id, @name, @en, @dt, @tv )";
         
         await using var c   = new SqlConnection(_conn);
-        await using var cmd = new SqlCommand(sql, c);
+        using var tx = c.BeginTransaction();
+
+        await using var cmd = new SqlCommand("AddDevice", c, tx) {
+            CommandType = CommandType.StoredProcedure
+        };
 
         cmd.Parameters.AddWithValue("@id",   d.Id);
         cmd.Parameters.AddWithValue("@name", d.Name);
@@ -56,6 +61,7 @@ public class DeviceRepository : IDeviceRepository {
 
         await c.OpenAsync();
         await cmd.ExecuteNonQueryAsync();
+        tx.Commit();
     }
 
     public async Task UpdateAsync(Device? d) {
@@ -89,10 +95,11 @@ public class DeviceRepository : IDeviceRepository {
         const string sql = "DELETE FROM Devices WHERE Id=@id";
         await using var c = new SqlConnection(_conn);
         await using var cmd = new SqlCommand(sql, c);
+        await c.OpenAsync();
         using var tx  = c.BeginTransaction();
 
         cmd.Parameters.AddWithValue("@id", id);
-        await c.OpenAsync();
+       
         await cmd.ExecuteNonQueryAsync();
         tx.Commit();
     }

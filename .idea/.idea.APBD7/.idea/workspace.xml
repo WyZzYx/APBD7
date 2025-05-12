@@ -19,20 +19,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa953c32-fbfc-45e3-b7a3-16bf74934cfd" name="Changes" comment="Bug fix">
-      <change afterPath="$PROJECT_DIR$/BusinessLogic/Services/DeviceValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/DeviceFactory.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataAccess/Repositories/ImportParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Domain/PCDevice.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/create_db.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/seed_data.sql" afterDir="false" />
+    <list default="true" id="fa953c32-fbfc-45e3-b7a3-16bf74934cfd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.APBD7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.APBD7/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/DeviceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/DeviceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BusinessLogic/Services/IDeviceService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BusinessLogic/Services/IDeviceService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/Repositories/DeviceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Repositories/DeviceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataAccess/Repositories/IDeviceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DataAccess/Repositories/IDeviceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/Device.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/Device.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +51,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/75a913e9a7f21ec51df825066a2374e58efe6284a9f27a94ad93a275eb2d98/WebApplicationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a1486c8dbbbc2d8a8acfa6de27abf918d3f654c3e71f3a10c2c369f1c76f6b6/MvcServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a434b74a44cbf5195ce762afb1f966a5e1ce8e28090ea5b507b188fa8d35/Results.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/vitaliikoltok/RiderProjects/APBD7/DataAccess/Repositories/DeviceRepository.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Domain/Device.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
@@ -93,6 +82,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/vitaliikoltok/RiderProjects/APBD7&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -386,7 +376,12 @@
       <option name="presentableId" value="Default" />
       <updated>1745257034955</updated>
       <workItem from="1745257036054" duration="13770000" />
-      <workItem from="1745570115041" duration="8775000" />
+      <workItem from="1745570115041" duration="9010000" />
+      <workItem from="1746459437987" duration="933000" />
+      <workItem from="1746601411780" duration="88000" />
+      <workItem from="1746779763083" duration="892000" />
+      <workItem from="1746783499349" duration="863000" />
+      <workItem from="1747070010142" duration="46000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -412,7 +407,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745761700254</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="adding new functionality">
+      <option name="closed" value="true" />
+      <created>1745764208169</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745764208169</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Adding transactions">
+      <option name="closed" value="true" />
+      <created>1746460899210</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1746460899210</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,6 +436,8 @@
     <MESSAGE value="init commit" />
     <MESSAGE value="init" />
     <MESSAGE value="Bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
+    <MESSAGE value="adding new functionality" />
+    <MESSAGE value="Adding transactions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding transactions" />
   </component>
 </project>
